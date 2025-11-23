@@ -1,0 +1,35 @@
+.recipecard{
+    margin:20px, auto;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgb(0, 0,0, 0.2);
+    color: blue;
+    text-align:center;
+    background-color:rgb(197, 143, 197);
+    border-radius: 20px;
+    padding: 20px;
+}
+.recipename{
+    font-size:24px;
+    margin-bottom: 10px;
+
+}
+.recipeimage{
+    max-width: 100%;
+    border-radius: 5px;
+    height: auto;
+    margin-bottom: 10px ;
+}
+
+.recipeinstruction{
+ color:blue;
+ background-color:rgb(197, 143, 197); ;
+
+}
+
+.recipetitle{
+ color: blue;
+}
+.recipedetail{
+    color:blue; 
+    font-weight: bold;
+}
