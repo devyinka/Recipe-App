@@ -1,18 +1,25 @@
 import "./searchComp.css";
 import { useEffect, useState } from "react";
-let URL = "https://api.spoonacular.com/recipes/complexSearch";
-let API_key = process.env.APIKEY;
+
+const URL = "https://api.spoonacular.com/recipes/complexSearch";
+const API_KEY = process.env.REACT_APP_APIKEY;
+
 export default function SearchComp({ Recipe, setRecipe }) {
   const [Query, setQuery] = useState("pizza");
 
   useEffect(() => {
     async function fetchRecipe() {
-      let res = await fetch(`${URL}?query=${Query}&apiKey=${API_key}`);
+      if (!API_KEY) {
+        setRecipe([]);
+        return;
+      }
+
+      let res = await fetch(`${URL}?query=${Query}&apiKey=${API_KEY}`);
       let response = await res.json();
-      setRecipe(response.results);
+      setRecipe(Array.isArray(response?.results) ? response.results : []);
     }
     fetchRecipe();
-  }, [Query]);
+  }, [Query, setRecipe, API_KEY]);
   return (
     <div className="container">
       <input
@@ -22,6 +29,11 @@ export default function SearchComp({ Recipe, setRecipe }) {
         placeholder="name of the search food"
         onChange={(e) => setQuery(e.target.value)}
       />
+      {!API_KEY && (
+        <p className="inputhelper">
+          Missing API key. Set REACT_APP_APIKEY in .env and restart.
+        </p>
+      )}
     </div>
   );
 }

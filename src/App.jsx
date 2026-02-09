@@ -6,24 +6,22 @@ import SearchComp from "./components/searchComp/searchComp";
 import Outercontainer from "./components/container/outercontainer";
 import Foodlist from "./components/Foodlist/Foodlist";
 
- function App(){
-const [Recipe, setrecipe]=useState([]);
-const [foodid, setfoodid]=useState("658615");
-return(
-  <div >
-    <Navigationbar/>
-    <SearchComp Recipe={Recipe} setRecipe={setrecipe}/>
-    <Outercontainer>
-      <Innercontainer>
-         <Foodlist food={Recipe}  setfoodid={setfoodid} />food, setfoodid
-      </Innercontainer>
-      <Innercontainer>
-         <Fooddetail  foodid={foodid}/>
-      </Innercontainer>
-    </Outercontainer>
-    
-   
-  </div>
-)
+function App() {
+  const [Recipe, setrecipe] = useState([]);
+  const [foodid, setfoodid] = useState("658615");
+  return (
+    <div>
+      <Navigationbar />
+      <SearchComp Recipe={Recipe} setRecipe={setrecipe} />
+      <Outercontainer>
+        <Innercontainer>
+          <Foodlist food={Recipe} setfoodid={setfoodid} />
+        </Innercontainer>
+        <Innercontainer>
+          <Fooddetail foodid={foodid} />
+        </Innercontainer>
+      </Outercontainer>
+    </div>
+  );
 }
 export default App;
