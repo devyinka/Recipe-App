@@ -19,7 +19,7 @@ export default function SearchComp({ Recipe, setRecipe }) {
       setRecipe(Array.isArray(response?.results) ? response.results : []);
     }
     fetchRecipe();
-  }, [Query, setRecipe, API_KEY]);
+  }, [Query, setRecipe]);
   return (
     <div className="container">
       <input

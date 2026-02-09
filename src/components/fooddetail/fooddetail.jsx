@@ -37,7 +37,7 @@ export default function Fooddetail({ foodid }) {
       }
     }
     fetchingrident();
-  }, [foodid, API_KEY]);
+  }, [foodid]);
   return (
     <div>
       {error && (
